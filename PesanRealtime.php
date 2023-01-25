@@ -1,4 +1,7 @@
 <?php
+//------------------------------::::::::::::::::::::------------------------------\\
+// Dibuat oleh FA Team di PT. Pacifica Raya Technology \\
+//------------------------------::::::::::::::::::::------------------------------\\
 function GetBadgePesan()
 {
     echo '<i class="fa fa-envelope-o"></i>';
