@@ -3,7 +3,7 @@
 // Dibuat oleh FA Team di PT. Pacifica Raya Technology \\
 //------------------------------::::::::::::::::::::------------------------------\\
 session_start();
-if ($_SESSION['level'] != "Admin") {
+if ($_SESSION['level'] != "Anggota") {
     $_SESSION['masuk_dulu'] = "Silahkan masuk terlebih dahulu !!";
     header("location: ../../masuk");
 }
@@ -19,9 +19,9 @@ if ($_SESSION['level'] != "Admin") {
     include "../../config/koneksi.php";
 
     $sql = mysqli_query($koneksi, "SELECT * FROM identitas");
-    $row = mysqli_fetch_assoc($sql);
+    $row1 = mysqli_fetch_assoc($sql);
     ?>
-    <title>Dashboard Admin | <?= $row['nama_app']; ?></title>
+    <title>Dashboard | <?= $row1['nama_app']; ?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -30,8 +30,6 @@ if ($_SESSION['level'] != "Admin") {
     <link rel="stylesheet" href="../../assets/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="../../assets/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="../../assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../assets/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -47,81 +45,11 @@ if ($_SESSION['level'] != "Admin") {
     <link rel="stylesheet" href="../../assets/dist/css/custom.css">
     <!-- Toastr -->
     <link rel="stylesheet" href="../../assets/dist/css/toastr.min.css">
-    <!-- -->
-    <style>
-        .theme-loader {
-            height: 100%;
-            width: 100%;
-            background-color: #fff;
-            position: fixed;
-            z-index: 999999;
-            top: 0;
-        }
-
-        .theme-loader .ball-scale {
-            left: 50%;
-            top: 50%;
-            position: absolute;
-            height: 50px;
-            width: 50px;
-            margin: -25px 0 0 -25px;
-        }
-
-        .theme-loader .ball-scale .contain {
-            height: 100%;
-            width: 100%;
-        }
-
-        .theme-loader .ball-scale .contain .ring {
-            display: none;
-        }
-
-        .theme-loader .ball-scale .contain .ring:first-child {
-            display: block;
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-            padding: 10px;
-            border: 3px solid transparent;
-            border-left-color: #2b99f2;
-            border-right-color: #2b99f2;
-            -webkit-animation: round-rotate 1.5s ease-in-out infinite;
-            animation: round-rotate 1.5s ease-in-out infinite;
-        }
-
-        .theme-loader .ball-scale .contain .ring:first-child .frame {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            border-left-color: #65a6db;
-            border-right-color: #65a6db;
-            -webkit-animation: round-rotate 1.5s ease-in-out infinite;
-            animation: round-rotate 1.5s ease-in-out infinite;
-        }
-
-        @-webkit-keyframes round-rotate {
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes round-rotate {
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini" style="font-family: 'Quicksand', sans-serif">
+<body class="hold-transition skin-black sidebar-mini" style="font-family: 'Quicksand', sans-serif">
 
-    <!-- Pre-loader start -->
-
-    <!-- Pre-loader end -->
     <div class="wrapper">
 
         <?php include "pages/navbar.php"; ?>
@@ -184,18 +112,6 @@ if ($_SESSION['level'] != "Admin") {
             $('.treeview').removeClass('menu-open active');
             $('[href$="' + url + '"]').closest('li.treeview').addClass("menu-open active");
         });
-    </script>
-    <script src="../../assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script>
-        $(function() {
-            //Date picker
-            $('#datepicker').datepicker({
-                autoclose: true
-            })
-            $('#datepicker1').datepicker({
-                autoclose: true
-            })
-        })
     </script>
 </body>
 
